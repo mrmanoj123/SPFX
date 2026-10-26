@@ -1,0 +1,766 @@
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: 24px;
+  margin: 0;
+  box-sizing: border-box;
+  background: #f7f9fa;
+  color: #263746;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================
+   COMMON SECTION STYLES
+========================================= */
+
+.section {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  box-sizing: border-box;
+
+  h2 {
+    margin: 0 0 14px;
+    color: #263746;
+    font-size: 19px;
+    font-weight: 600;
+  }
+
+  a {
+    color: #008b83;
+    font-size: 12px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+/* =========================================
+   LATEST NEWS
+========================================= */
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.5fr;
+  gap: 16px;
+  width: 100%;
+  height: 280px;
+  min-height: 280px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+/* Featured news */
+
+.featuredNews {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 280px;
+  min-width: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #173c4a;
+  isolation: isolate;
+
+  img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.03) 15%,
+        rgba(0, 0, 0, 0.25) 45%,
+        rgba(0, 0, 0, 0.88) 100%);
+  }
+
+  >span,
+  h3,
+  p,
+  >a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    color: #fff;
+  }
+
+  >span {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  p {
+    margin: 0 0 10px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  >a {
+    margin-bottom: 0;
+    font-size: 11px;
+  }
+}
+
+/* Four news cards */
+
+.newsCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  height: 280px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.newsCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+  .imageWrapper {
+    position: relative;
+    flex: 0 0 68px;
+    width: 100%;
+    height: 68px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 68px;
+      object-fit: cover;
+    }
+
+    span {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      display: inline-block;
+      width: auto;
+      height: auto;
+      padding: 4px 7px;
+      box-sizing: border-box;
+      border-radius: 3px;
+      background: #008f89;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+  }
+
+  small {
+    display: block;
+    flex-shrink: 0;
+    padding: 6px 10px 0;
+    color: #829098;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  h3 {
+    display: -webkit-box;
+    flex-shrink: 0;
+    margin: 4px 10px;
+    overflow: hidden;
+    color: #263746;
+    font-size: 12px;
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  >a {
+    display: inline-block;
+    flex-shrink: 0;
+    margin: auto 10px 6px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+}
+
+/* =========================================
+   QUICK LINKS - IMAGE NAVIGATION CARDS
+========================================= */
+
+.quickLinks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main clickable card */
+
+.quickCard {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 180px;
+  min-width: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #173c4a;
+  color: #fff !important;
+  text-decoration: none !important;
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+
+    .quickImage {
+      transform: scale(1.06);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid #009b9b;
+    outline-offset: 3px;
+  }
+}
+
+/* Card background image */
+
+.quickImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Dark image overlay */
+
+.quickOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.05) 10%,
+      rgba(0, 0, 0, 0.25) 40%,
+      rgba(0, 0, 0, 0.88) 100%);
+}
+
+/* Icon and text wrapper */
+
+.quickContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  padding-right: 30px;
+}
+
+/* Circular icon */
+
+.quickIcon {
+  display: flex;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #008f89;
+  color: #fff;
+  font-size: 23px;
+}
+
+/* Title and description */
+
+.quickText {
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0;
+    color: #e2eeee;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+/* Navigation arrow */
+
+.arrow {
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* =========================================
+   UPCOMING EVENTS AND VOLUNTEER
+========================================= */
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.bottomGrid .section {
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* Events */
+
+.event {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4e9eb;
+
+  h3 {
+    margin: 0 0 5px;
+    color: #263746;
+    font-size: 13px;
+  }
+
+  p {
+    margin: 0;
+    color: #77858d;
+    font-size: 11px;
+  }
+
+  >span {
+    margin-left: auto;
+  }
+}
+
+/* Event date */
+
+.eventDate {
+  display: flex;
+  flex: 0 0 42px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  padding: 8px 4px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #e3f3f1;
+  color: #008b83;
+  text-align: center;
+
+  strong {
+    font-size: 18px;
+  }
+
+  small {
+    font-size: 10px;
+  }
+}
+
+/* Volunteer card */
+
+.volunteerCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid #e4e9eb;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  h3 {
+    margin: 6px 0;
+    color: #263746;
+    font-size: 15px;
+  }
+
+  p {
+    margin: 8px 0;
+    color: #687781;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 4px;
+    background: #008b83;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background: #006f69;
+    }
+  }
+}
+
+.volunteerIcon {
+  flex: 0 0 auto;
+  font-size: 42px;
+}
+
+/* =========================================
+   SECTION SPACING
+========================================= */
+
+.dashboard>.section:first-child {
+  margin-bottom: 24px;
+}
+
+.dashboard>.section:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.dashboard>.section:first-child .newsGrid {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET
+========================================= */
+
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    padding: 18px;
+  }
+
+  .quickLinks {
+    gap: 10px;
+  }
+
+  .quickCard {
+    height: 150px;
+    padding: 10px;
+  }
+
+  .quickContent {
+    gap: 8px;
+  }
+
+  .quickIcon {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .quickText h3 {
+    font-size: 11px;
+  }
+
+  .quickText p {
+    font-size: 9px;
+  }
+
+  .bottomGrid {
+    gap: 16px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  .newsGrid,
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsGrid {
+    height: auto;
+    min-height: 0;
+  }
+
+  .featuredNews {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .newsCards {
+    grid-template-rows: repeat(2, minmax(134px, auto));
+    height: auto;
+  }
+
+  .newsCard {
+    min-height: 134px;
+  }
+
+  .quickLinks {
+    grid-template-columns: 1fr;
+  }
+
+  .quickCard {
+    height: 150px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 480px) {
+  .dashboard {
+    padding: 14px;
+  }
+
+  .newsCards {
+    grid-template-columns: 1fr;
+  }
+
+  .newsCards {
+    grid-template-rows: auto;
+  }
+
+  .newsCard {
+    min-height: 180px;
+
+    .imageWrapper {
+      flex-basis: 100px;
+      height: 100px;
+
+      img {
+        height: 100px;
+      }
+    }
+  }
+
+  .quickCard {
+    height: 150px;
+  }
+
+  .volunteerCard {
+    gap: 12px;
+    padding: 14px;
+  }
+}
+
+/* =========================================
+   LATEST NEWS - CATEGORY BADGE FIX
+========================================= */
+
+.newsCard .imageWrapper {
+  position: relative;
+
+  span {
+    position: absolute !important;
+    top: 7px !important;
+    left: 7px !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: fit-content !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: max-content !important;
+
+    padding: 4px 8px !important;
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+    border: none !important;
+    border-radius: 3px !important;
+
+    background: #008f89 !important;
+    color: #ffffff !important;
+
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+
+    z-index: 5 !important;
+  }
+}
+
+.quickLinks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.quickCard {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  min-width: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #173c4a;
+  color: #fff !important;
+  text-decoration: none !important;
+  isolation: isolate;
+
+  &:hover .quickImage {
+    transform: scale(1.06);
+  }
+}
+
+.quickImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.quickOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.85));
+}
+
+.quickContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  padding-right: 30px;
+}
+
+.quickIcon {
+  display: flex;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #008f89;
+  color: #fff;
+  font-size: 23px;
+}
+
+.quickText {
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-size: 13px;
+  }
+
+  p {
+    margin: 0;
+    color: #e2eeee;
+    font-size: 10px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  bottom: 12px;
+  color: #fff;
+  font-size: 17px;
+}
